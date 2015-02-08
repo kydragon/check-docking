@@ -1,0 +1,6 @@
+*.pyc
+.idea/
+
+dist/
+build/
+check_docking.egg-info/
