@@ -14,27 +14,24 @@ check-docking.
 -----
 
     配置settings.py修改：
-        # check-docking配置项
-            
-            IS_DATA_INSPECT = True  # 仅 DEBUG 为 True 时有效
-            
-            INSPECT_PROFILE = "project.check_config"  # 检测依赖配置文件模块
+    ::
 
-        INSTALLED_APPS 增加:
-            'check_docking',
-            
-            'check_docking.stored.django',
+        # check-docking配置项
+        IS_DATA_INSPECT = True  # 仅 DEBUG 为 True 时有效
+        INSPECT_PROFILE = "project.check_config"  # 检测依赖配置文件模块
+
+        # INSTALLED_APPS 增加:
+        'check_docking',
+        'check_docking.stored.django',
 
     下面两项非必须, 需要完成使用流程节点, 生成依赖的配置文件后启用其一.
+    ::
 
         MIDDLEWARE_CLASSES 增加:
-        
             'check_docking.middleware.InspectMiddleware'
             
         除了MiddleWare形式, 你也可以使用装饰器形式：
-         
             from check_docking.inspect import debug_request
-            
             ＠debug_request
 
     你还可以使用工具, 从源代码中搜集数据并入库, 具体可以参看project_demo/demo/demo.py中代码.
@@ -42,12 +39,12 @@ check-docking.
 
 流程：
 -------
+    ::
 
-        python manage.py syncdb
-        
-        python manage.py runserver
-        
+        $ python manage.py syncdb
+        $ python manage.py runserver
+
         http://127.0.0.0:8000/admin 录入数据.
-        
-        python manage.py inspectprofile
+
+        $ python manage.py inspectprofile
 

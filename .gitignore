@@ -1,6 +1,11 @@
-*.pyc
 .idea/
+__pycache__/
+
+*.py[cod]
+*.sw[op]
 
 dist/
 build/
 check_docking.egg-info/
+
+setuptool.sh
